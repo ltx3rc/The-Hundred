@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -7,18 +8,23 @@
 
 <title>The Hundred</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+font-family:'Poppins',sans-serif;
 }
 
 body{
 
-background:#fff;
+background:#000;
 height:100vh;
 display:flex;
 justify-content:center;
@@ -29,27 +35,28 @@ overflow:hidden;
 
 .container{
 
-text-align:center;
 width:100%;
-padding:25px;
+padding:30px;
+text-align:center;
 
 }
 
 .logo{
 
-width:185px;
+width:190px;
 opacity:0;
-transform:scale(.75);
-animation:logo 1s ease forwards;
+transform:scale(.7);
+
+animation:logoAnimation 1.3s forwards;
 
 }
 
-@keyframes logo{
+@keyframes logoAnimation{
 
 0%{
 
 opacity:0;
-transform:scale(.75);
+transform:scale(.7);
 
 }
 
@@ -64,17 +71,20 @@ transform:scale(1);
 
 .tagline{
 
-margin-top:10px;
-font-size:17px;
-font-weight:600;
-color:#555;
+margin-top:15px;
+color:white;
+font-size:16px;
+font-weight:500;
+letter-spacing:.5px;
+
 opacity:0;
-animation:fade 1s forwards;
+
+animation:fadeText 1s forwards;
 animation-delay:.8s;
 
 }
 
-@keyframes fade{
+@keyframes fadeText{
 
 to{
 
@@ -84,112 +94,235 @@ opacity:1;
 
 }
 
-.loader-card{
+.loaderCard{
 
-width:320px;
-max-width:95%;
-margin:40px auto;
-padding:22px;
-background:rgba(255,255,255,.85);
-border-radius:22px;
-box-shadow:0 12px 40px rgba(0,0,0,.08);
-border:1px solid rgba(255,255,255,.4);
-backdrop-filter:blur(18px);
+margin:45px auto 0;
+
+max-width:360px;
+
+background:rgba(255,255,255,.08);
+
+border:1px solid rgba(255,255,255,.15);
+
+backdrop-filter:blur(20px);
+
+border-radius:24px;
+
+padding:25px;
+
+box-shadow:0 10px 40px rgba(255,255,255,.05);
 
 }
 
-.loader-title{
+.loaderTitle{
 
-font-size:18px;
-font-weight:700;
-color:#111;
-margin-bottom:18px;
+color:white;
+
+font-size:20px;
+
+font-weight:600;
+
+margin-bottom:20px;
 
 }
 
 .progress{
 
-width:100%;
-height:10px;
-background:#ececec;
+height:8px;
+
+background:rgba(255,255,255,.1);
+
 border-radius:30px;
+
 overflow:hidden;
+
+position:relative;
 
 }
 
 .bar{
 
 width:0%;
+
 height:100%;
-background:linear-gradient(90deg,#E30613,#ff5b5b);
+
+background:linear-gradient(90deg,#E30613,#ff5757);
+
 border-radius:30px;
-transition:.35s;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.bar::after{
+
+content:'';
+
+position:absolute;
+
+top:0;
+
+left:-40%;
+
+width:40%;
+
+height:100%;
+
+background:rgba(255,255,255,.5);
+
+filter:blur(5px);
+
+animation:shine 1.2s linear infinite;
+
+}
+
+@keyframes shine{
+
+100%{
+
+left:140%;
+
+}
 
 }
 
 .percent{
 
-margin-top:14px;
-font-size:18px;
+margin-top:18px;
+
+font-size:24px;
+
 font-weight:700;
-color:#E30613;
+
+color:#ffffff;
+
+}
+
+.typing{
+
+margin-top:22px;
+
+font-size:15px;
+
+color:#58BFFF;
+
+font-weight:500;
+
+height:24px;
+
+}
+
+.cursor{
+
+animation:blink .8s infinite;
+
+}
+
+@keyframes blink{
+
+50%{
+
+opacity:0;
+
+}
+
+}
+  .statusBox{
+
+margin-top:22px;
+
+text-align:left;
 
 }
 
 .status{
 
-margin-top:20px;
-text-align:left;
+display:flex;
 
-}
+align-items:center;
 
-.status p{
+gap:10px;
+
+margin:12px 0;
+
+color:#d7d7d7;
 
 font-size:15px;
-padding:7px 0;
-color:#444;
+
+opacity:.35;
+
+transition:.35s;
 
 }
 
-.check{
+.status.active{
 
-color:#18a558;
+opacity:1;
+
+color:#ffffff;
+
+}
+
+.status.done{
+
+opacity:1;
+
+color:#3DDC84;
+
+}
+
+.icon{
+
+width:20px;
+
+text-align:center;
+
 font-weight:bold;
-
-}
-
-.wait{
-
-color:#999;
 
 }
 
 .welcome{
 
-margin-top:25px;
-font-size:24px;
-font-weight:700;
-color:#111;
 display:none;
-animation:fadeUp .8s;
+
+margin-top:28px;
+
+animation:welcome .8s ease;
 
 }
 
-.welcome span{
+.welcome h2{
 
-display:block;
-margin-top:6px;
+color:#ffffff;
+
+font-size:22px;
+
+font-weight:500;
+
+}
+
+.welcome h1{
+
+margin-top:8px;
+
 color:#E30613;
-font-size:30px;
+
+font-size:34px;
+
 letter-spacing:2px;
 
+font-weight:700;
+
 }
 
-@keyframes fadeUp{
+@keyframes welcome{
 
 from{
 
 opacity:0;
+
 transform:translateY(25px);
 
 }
@@ -197,6 +330,7 @@ transform:translateY(25px);
 to{
 
 opacity:1;
+
 transform:translateY(0);
 
 }
@@ -205,133 +339,204 @@ transform:translateY(0);
 
 .version{
 
-position:absolute;
+position:fixed;
+
 bottom:18px;
+
 left:0;
+
 right:0;
+
 text-align:center;
+
 font-size:13px;
-color:#999;
+
+color:#888;
+
+letter-spacing:.5px;
 
 }
 
-</style>
+.float{
 
-</head>
-<body>
+animation:floatLogo 3s ease-in-out infinite;
 
-<div class="container">
+}
 
-<img src="logo.png" class="logo">
+@keyframes floatLogo{
 
-<div class="tagline">
-Taste Beyond Limits
-</div>
+0%{
+  <script>
 
-<div class="loader-card">
-
-<div class="loader-title">
-⚡ Preparing Workspace
-</div>
-
-<div class="progress">
-<div class="bar" id="bar"></div>
-</div>
-
-<div class="percent" id="percent">
-0%
-</div>
-
-<div class="status">
-
-<p id="s1"><span class="wait">⏳</span> Initializing UI...</p>
-
-<p id="s2"><span class="wait">⏳</span> Loading Assets...</p>
-
-<p id="s3"><span class="wait">⏳</span> Preparing Dashboard...</p>
-
-<p id="s4"><span class="wait">⏳</span> Finalizing...</p>
-
-</div>
-
-<div class="welcome" id="welcome">
-
-Welcome To
-
-<span>THE HUNDRED</span>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="version">
-The Hundred Manager v1.0
-</div>
-
-<script>
-
-let percent=0;
+const typing=document.getElementById("typing");
 
 const bar=document.getElementById("bar");
-const txt=document.getElementById("percent");
 
-const s1=document.getElementById("s1");
-const s2=document.getElementById("s2");
-const s3=document.getElementById("s3");
-const s4=document.getElementById("s4");
+const percent=document.getElementById("percent");
 
 const welcome=document.getElementById("welcome");
 
-const timer=setInterval(()=>{
+const st1=document.getElementById("st1");
+const st2=document.getElementById("st2");
+const st3=document.getElementById("st3");
+const st4=document.getElementById("st4");
 
-percent++;
+const messages=[
 
-bar.style.width=percent+"%";
+"Initializing Engine...",
+"Loading Restaurant...",
+"Connecting Database...",
+"Preparing Workspace...",
+"Ready..."
 
-txt.innerHTML=percent+"%";
+];
 
-if(percent==20){
+let msgIndex=0;
+let charIndex=0;
+let deleting=false;
 
-s1.innerHTML='<span class="check">✔</span> Initializing UI';
+function typingEffect(){
+
+const current=messages[msgIndex];
+
+if(!deleting){
+
+typing.textContent=current.substring(0,charIndex);
+
+charIndex++;
+
+if(charIndex>current.length){
+
+deleting=true;
+
+setTimeout(typingEffect,700);
+
+return;
 
 }
 
-if(percent==45){
+}else{
 
-s2.innerHTML='<span class="check">✔</span> Loading Assets';
+typing.textContent=current.substring(0,charIndex);
+
+charIndex--;
+
+if(charIndex<0){
+
+deleting=false;
+
+msgIndex++;
+
+charIndex=0;
+
+if(msgIndex>=messages.length){
+
+msgIndex=0;
 
 }
 
-if(percent==70){
-
-s3.innerHTML='<span class="check">✔</span> Preparing Dashboard';
+}
 
 }
 
-if(percent==95){
-
-s4.innerHTML='<span class="check">✔</span> Ready';
+setTimeout(typingEffect,55);
 
 }
 
-if(percent>=100){
+typingEffect();
 
-clearInterval(timer);
+let p=0;
 
-document.querySelector(".status").style.display="none";
+const loader=setInterval(()=>{
 
-document.querySelector(".progress").style.display="none";
+p++;
 
-document.querySelector(".percent").style.display="none";
+percent.innerHTML=p+"%";
 
-welcome.style.display="block";
+bar.style.width=p+"%";
+
+if(p==15){
+
+st1.classList.add("active");
+
+}
+
+if(p==25){
+
+st1.classList.remove("active");
+
+st1.classList.add("done");
+
+st1.querySelector(".icon").innerHTML="✔";
+
+}
+
+if(p==35){
+
+st2.classList.add("active");
+
+}
+
+if(p==50){
+
+st2.classList.remove("active");
+
+st2.classList.add("done");
+
+st2.querySelector(".icon").innerHTML="✔";
+
+}
+
+if(p==60){
+
+st3.classList.add("active");
+
+}
+
+if(p==75){
+
+st3.classList.remove("active");
+
+st3.classList.add("done");
+
+st3.querySelector(".icon").innerHTML="✔";
+
+}
+
+if(p==85){
+
+st4.classList.add("active");
+
+}
+
+if(p==100){
+
+clearInterval(loader);
+
+}
+
+},45);if(p>=100){
+
+percent.innerHTML="100%";
 
 setTimeout(()=>{
 
-document.body.style.transition=".8s";
+document.querySelector(".progress").style.display="none";
+document.querySelector(".percent").style.display="none";
+document.querySelector(".typing").style.display="none";
+document.querySelector(".statusBox").style.display="none";
 
+welcome.style.display="block";
+
+if(navigator.vibrate){
+
+navigator.vibrate(80);
+
+}
+
+setTimeout(()=>{
+
+document.body.style.transition="opacity .8s ease";
 document.body.style.opacity="0";
 
 setTimeout(()=>{
@@ -342,9 +547,9 @@ window.location.href="login.html";
 
 },1800);
 
-}
+},500);
 
-},40);
+}
 
 </script>
 
