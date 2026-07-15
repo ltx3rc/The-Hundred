@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Hundred</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+}
+
+body{
+background:#ffffff;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+overflow:hidden;
+}
+
+.container{
+text-align:center;
+animation:fadeIn 1s ease;
+}
+
+.logo{
+width:190px;
+opacity:0;
+transform:scale(.8);
+animation:logoShow 1.2s forwards;
+}
+
+@keyframes logoShow{
+0%{
+opacity:0;
+transform:scale(.8);
+}
+100%{
+opacity:1;
+transform:scale(1);
+}
+}
+
+.tagline{
+margin-top:12px;
+font-size:16px;
+font-weight:600;
+color:#555;
+opacity:0;
+animation:fadeText 1s forwards;
+animation-delay:.8s;
+}
+
+@keyframes fadeText{
+to{
+opacity:1;
+}
+}
+
+.loading{
+margin-top:35px;
+font-size:22px;
+font-weight:bold;
+color:#4FC3F7;
+height:30px;
+}
+
+.cursor{
+animation:blink .8s infinite;
+}
+
+@keyframes blink{
+50%{
+opacity:0;
+}
+}
+
+.progress{
+width:260px;
+height:7px;
+background:#eee;
+border-radius:20px;
+margin:25px auto;
+overflow:hidden;
+}
+
+.bar{
+height:100%;
+width:0;
+background:#E30613;
+border-radius:20px;
+animation:progress 4.5s linear forwards;
+}
+
+@keyframes progress{
+100%{
+width:100%;
+}
+}
+
+.version{
+position:absolute;
+bottom:18px;
+left:0;
+right:0;
+text-align:center;
+font-size:13px;
+color:#999;
+}
+
+@keyframes fadeIn{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<img src="logo.png" class="logo">
+
+<div class="tagline">
+Taste Beyond Limits
+</div>
+
+<div class="loading">
+<span id="loadingText"></span><span class="cursor">|</span>
+</div>
+
+<div class="progress">
+<div class="bar"></div>
+</div>
+
+</div>
+
+<div class="version">
+The Hundred Manager v1.0
+</div>
+
+<script>
+
+const word="Loading...";
+const output=document.getElementById("loadingText");
+
+let index=0;
+let deleting=false;
+
+function typeEffect(){
+
+if(!deleting){
+
+output.textContent=word.substring(0,index);
+
+index++;
+
+if(index>word.length){
+
+deleting=true;
+
+setTimeout(typeEffect,700);
+
+return;
+
+}
+
+}else{
+
+output.textContent=word.substring(0,index);
+
+index--;
+
+if(index<0){
+
+deleting=false;
+
+index=0;
+
+}
+
+}
+
+setTimeout(typeEffect,140);
+
+}
+
+typeEffect();
+
+setTimeout(function(){
+
+document.body.style.opacity="0";
+
+document.body.style.transition="0.7s";
+
+setTimeout(function(){
+
+window.location.href="login.html";
+
+},700);
+
+},4500);
+
+</script>
+
+</body>
+</html>
