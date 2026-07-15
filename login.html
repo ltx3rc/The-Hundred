@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Hundred - Login</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+}
+
+body{
+background:#ffffff;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+padding:20px;
+}
+
+.container{
+width:100%;
+max-width:400px;
+text-align:center;
+animation:fadeUp .8s ease;
+}
+
+.logo{
+width:180px;
+margin-bottom:15px;
+}
+
+h2{
+color:#111;
+margin-bottom:5px;
+font-size:30px;
+}
+
+p{
+color:#666;
+margin-bottom:35px;
+}
+
+.card{
+background:#fff;
+border-radius:22px;
+padding:25px;
+box-shadow:0 10px 35px rgba(0,0,0,.08);
+}
+
+.input{
+width:100%;
+padding:16px;
+margin-bottom:18px;
+border:1px solid #ddd;
+border-radius:14px;
+font-size:16px;
+outline:none;
+transition:.3s;
+}
+
+.input:focus{
+border-color:#E30613;
+box-shadow:0 0 8px rgba(227,6,19,.2);
+}
+
+button{
+width:100%;
+padding:16px;
+border:none;
+border-radius:14px;
+background:#E30613;
+color:#fff;
+font-size:17px;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+transform:translateY(-2px);
+}
+
+.footer{
+margin-top:20px;
+font-size:14px;
+color:#888;
+}
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<img src="logo.png" class="logo">
+
+<h2>Welcome</h2>
+<p>Manager Login</p>
+
+<div class="card">
+
+<input class="input" type="email" placeholder="Email">
+
+<input class="input" type="password" placeholder="Password">
+
+<button onclick="login()">Login</button>
+
+</div>
+
+<div class="footer">
+The Hundred Manager v1.0
+</div>
+
+</div>
+
+<script>
+function login(){
+
+const email=document.querySelectorAll(".input")[0].value;
+const pass=document.querySelectorAll(".input")[1].value;
+
+if(email===""){
+alert("Enter Email");
+return;
+}
+
+if(pass===""){
+alert("Enter Password");
+return;
+}
+
+window.location.href="dashboard.html";
+
+}
+</script>
+
+</body>
+</html>
