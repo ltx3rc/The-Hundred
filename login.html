@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Hundred Manager</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+body{
+height:100vh;display:flex;justify-content:center;align-items:center;overflow:hidden;
+background:linear-gradient(180deg,#fafafa,#ececec);
+}
+.bg1,.bg2{position:fixed;border-radius:50%;filter:blur(90px);opacity:.25}
+.bg1{width:240px;height:240px;background:#ff3b30;top:-60px;right:-60px}
+.bg2{width:220px;height:220px;background:#0a84ff;left:-70px;bottom:-70px}
+.card{
+width:min(390px,92vw);
+background:rgba(255,255,255,.58);
+backdrop-filter:blur(24px);
+border:1px solid rgba(255,255,255,.7);
+border-radius:28px;
+padding:28px;
+box-shadow:0 20px 60px rgba(0,0,0,.12);
+}
+.logo{display:block;width:170px;margin:0 auto 18px}
+h2{text-align:center;margin-bottom:6px}
+p{text-align:center;color:#666;margin-bottom:22px}
+.input{width:100%;padding:15px;border:none;border-radius:16px;background:rgba(255,255,255,.8);margin:10px 0;font-size:16px}
+.btn{width:100%;padding:15px;border:none;border-radius:16px;background:linear-gradient(90deg,#E30613,#ff4d4d);color:#fff;font-size:17px;font-weight:700;cursor:pointer}
+.footer{text-align:center;color:#777;margin-top:18px;font-size:13px}
+</style>
+</head>
+<body>
+<div class="bg1"></div><div class="bg2"></div>
+<div class="card">
+<img src="logo.png" class="logo">
+<h2>Welcome Back</h2>
+<p>Manager Login</p>
+<input class="input" type="email" placeholder="Email">
+<input class="input" type="password" placeholder="Password">
+<button class="btn" onclick="location.href='dashboard.html'">Login</button>
+<div class="footer">The Hundred Manager v1.0</div>
+</div>
+</body>
+</html>
