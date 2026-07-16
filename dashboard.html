@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>The Hundred Dashboard</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif}
+body{background:#090909;color:#fff;min-height:100vh;overflow-x:hidden}
+body:before,body:after{content:"";position:fixed;width:260px;height:260px;border-radius:50%;filter:blur(90px);opacity:.22;z-index:0}
+body:before{background:#ff2d55;top:-70px;right:-70px}
+body:after{background:#0a84ff;left:-70px;bottom:-70px}
+.wrap{position:relative;z-index:1;padding:22px 18px 95px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}
+.avatar{width:54px;height:54px;border-radius:18px;background:rgba(255,255,255,.1);backdrop-filter:blur(20px);display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.12)}
+.small{color:#aaa;font-size:14px}.title{font-size:28px;font-weight:700}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.card{background:rgba(255,255,255,.08);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.12);border-radius:26px;padding:18px;box-shadow:0 15px 40px rgba(0,0,0,.35)}
+.icon{font-size:28px}.label{margin-top:12px;font-size:17px;font-weight:600}
+.full{margin-top:18px}
+.item{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08);color:#ddd}
+.badge{background:#e30613;padding:4px 10px;border-radius:99px;font-size:12px}
+.nav{position:fixed;left:15px;right:15px;bottom:16px;background:rgba(255,255,255,.08);backdrop-filter:blur(30px);border:1px solid rgba(255,255,255,.12);border-radius:24px;padding:14px;display:flex;justify-content:space-around}
+.nav a{text-decoration:none;color:#ddd;font-size:13px;text-align:center}
+.nav .active{color:#fff}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="header">
+<div><div class="small">Good Evening 👋</div><div class="title">The Hundred</div></div>
+<div class="avatar"><img src="logo.png" style="width:40px;height:40px;border-radius:12px"></div>
+</div>
+
+<div class="grid">
+<div class="card"><div class="icon">📦</div><div class="label">Inventory</div></div>
+<div class="card"><div class="icon">🛒</div><div class="label">Requirements</div></div>
+<div class="card"><div class="icon">👥</div><div class="label">Staff</div></div>
+<div class="card"><div class="icon">📊</div><div class="label">Reports</div></div>
+</div>
+
+<div class="card full">
+<h3 style="margin-bottom:14px">Low Stock Today</h3>
+<div class="item"><span>Refined Oil</span><span class="badge">Low</span></div>
+<div class="item"><span>Kitchen King</span><span class="badge">Low</span></div>
+<div class="item" style="border-bottom:none"><span>Rice</span><span class="badge">Low</span></div>
+</div>
+</div>
+
+<div class="nav">
+<a href="#" class="active">🏠<br>Home</a>
+<a href="#">📦<br>Stock</a>
+<a href="#">📊<br>Reports</a>
+<a href="#">⚙️<br>Settings</a>
+</div>
+</body>
+</html>
