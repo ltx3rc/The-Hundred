@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Hundred</title>
+<style>
+body{margin:0;background:#000;color:#fff;font-family:Arial,Helvetica,sans-serif;display:flex;justify-content:center;align-items:center;height:100vh}
+.card{width:min(420px,90%);background:#111;border:1px solid #333;border-radius:22px;padding:28px;text-align:center}
+.logo{font-size:42px;font-weight:700}
+.red{color:#e30613}
+.yellow{color:#FFD700}
+.progress{height:8px;background:#333;border-radius:99px;overflow:hidden;margin:18px 0}
+.bar{height:100%;width:0;background:#e30613;transition:.05s}
+#percent{font-size:26px;font-weight:bold}
+#typing{color:#58BFFF;height:24px;margin:12px 0}
+.status{opacity:.5;margin:6px 0}
+.done{color:#44d17a;opacity:1}
+#welcome{display:none}
+</style>
+</head>
+<body>
+<div class="card">
+<div class="logo"><span class="red">THE HUN</span><span class="yellow">DRED</span></div>
+<p>Restaurant Management System</p>
+<div class="progress"><div class="bar" id="bar"></div></div>
+<div id="percent">0%</div>
+<div id="typing"></div>
+<div id="status">
+<div class="status" id="s1">⏳ Initializing Engine</div>
+<div class="status" id="s2">⏳ Loading Restaurant</div>
+<div class="status" id="s3">⏳ Connecting Database</div>
+<div class="status" id="s4">⏳ Preparing Workspace</div>
+</div>
+<div id="welcome"><h2>Welcome</h2><h1><span class="red">THE HUN</span><span class="yellow">DRED</span></h1></div>
+</div>
+<script>
+const typing=document.getElementById('typing');
+const bar=document.getElementById('bar');
+const percent=document.getElementById('percent');
+const statusBox=document.getElementById('status');
+const welcome=document.getElementById('welcome');
+const s1=document.getElementById('s1');
+const s2=document.getElementById('s2');
+const s3=document.getElementById('s3');
+const s4=document.getElementById('s4');
+const msgs=["Initializing Engine...","Loading Restaurant...","Connecting Database...","Preparing Workspace...","Ready..."];
+let mi=0,ci=0;
+setInterval(()=>{
+ typing.textContent=msgs[mi].substring(0,ci++);
+ if(ci>msgs[mi].length){ci=0;mi=(mi+1)%msgs.length;}
+},80);
+let p=0;
+const t=setInterval(()=>{
+ p++;
+ bar.style.width=p+"%";
+ percent.textContent=p+"%";
+ if(p===20){s1.className='status done';s1.textContent='✔ Initializing Engine';}
+ if(p===45){s2.className='status done';s2.textContent='✔ Loading Restaurant';}
+ if(p===70){s3.className='status done';s3.textContent='✔ Connecting Database';}
+ if(p===90){s4.className='status done';s4.textContent='✔ Preparing Workspace';}
+ if(p>=100){
+   clearInterval(t);
+   statusBox.style.display='none';
+   typing.style.display='none';
+   welcome.style.display='block';
+   setTimeout(()=>{window.location.replace('login.html');},1800);
+ }
+},45);
+</script>
+</body>
+</html>
