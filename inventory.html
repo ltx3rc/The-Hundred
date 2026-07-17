@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Inventory | The Hundred</title>
+<style>
+body{font-family:Arial;background:#0b0b0b;color:#fff;margin:0}
+header{padding:18px;font-size:28px;font-weight:bold}
+.card{margin:16px;padding:16px;background:#1b1b1b;border-radius:16px}
+input,button{width:100%;padding:12px;margin:8px 0;border-radius:10px;border:0}
+button{background:#e30613;color:#fff}
+.item{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #333}
+.badge{padding:4px 8px;border-radius:99px;background:#22c55e}
+.low{background:#e30613}.medium{background:#ff9800}.high{background:#22c55e}
+</style></head><body>
+<header>Inventory</header>
+<div class="card">
+<input id="search" placeholder="Search">
+<input id="itemName" placeholder="Item Name">
+<input id="itemQty" placeholder="Quantity">
+<button id="addBtn">Add Inventory</button>
+</div>
+<div class="card">Total: <span id="totalItems">0</span> | Low: <span id="lowStock">0</span></div>
+<div class="card" id="inventoryList"></div>
+<script type="module" src="inventory.js"></script>
+</body></html>
