@@ -511,22 +511,6 @@ Inventory List
 id="inventoryList"
 class="list">
 
-<div class="item">
-
-<div>
-
-<div class="itemName">
-
-Refined Oil
-
-</div>
-
-<div class="itemQty">
-
-5 Tin Remaining
-
-</div>
-
 </div>
 
 <div class="badge low">
@@ -686,3 +670,85 @@ cursor:pointer;
 }
 
 </style>
+<div style="height:100px;"></div>
+
+<div class="card">
+
+<div style="display:flex;justify-content:space-between;align-items:center;">
+
+<div>
+
+<div style="font-size:14px;color:#bdbdbd;">
+
+Total Items
+
+</div>
+
+<div id="totalItems"
+
+style="font-size:30px;font-weight:700;">
+
+0
+
+</div>
+
+</div>
+
+<div>
+
+<div style="font-size:14px;color:#bdbdbd;">
+
+Low Stock
+
+</div>
+
+<div id="lowStock"
+
+style="font-size:30px;font-weight:700;color:#ff3b30;">
+
+0
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<button
+
+id="fab"
+
+style="position:fixed;
+right:22px;
+bottom:110px;
+width:65px;
+height:65px;
+border:none;
+border-radius:50%;
+background:rgba(255,255,255,.12);
+backdrop-filter:blur(30px);
+border:1px solid rgba(255,255,255,.15);
+color:#fff;
+font-size:30px;
+cursor:pointer;
+box-shadow:0 15px 35px rgba(0,0,0,.35);">
+
++
+
+</button>
+
+<script>
+
+document.getElementById("fab").onclick=()=>{
+
+document.getElementById("itemName").focus();
+
+};
+
+</script>
+  <script type="module" src="inventory.js"></script>
+
+</body>
+</html>
