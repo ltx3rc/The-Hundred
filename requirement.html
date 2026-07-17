@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0">
+
+<title>Requirements | The Hundred</title>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+-webkit-tap-highlight-color:transparent;
+}
+
+:root{
+
+--bg:#060606;
+--glass:rgba(255,255,255,.08);
+--glass2:rgba(255,255,255,.12);
+--border:rgba(255,255,255,.15);
+
+--red:#E30613;
+--yellow:#FFD60A;
+
+--blue:#0A84FF;
+
+--text:#fff;
+
+}
+
+body{
+
+background:var(--bg);
+
+color:var(--text);
+
+overflow-x:hidden;
+
+min-height:100vh;
+
+position:relative;
+
+}
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+width:380px;
+
+height:380px;
+
+background:#ff2d55;
+
+filter:blur(140px);
+
+border-radius:50%;
+
+top:-150px;
+
+right:-130px;
+
+opacity:.18;
+
+animation:floatRed 10s ease-in-out infinite;
+
+}
+
+body::after{
+
+content:"";
+
+position:fixed;
+
+width:340px;
+
+height:340px;
+
+background:#0A84FF;
+
+filter:blur(130px);
+
+border-radius:50%;
+
+bottom:-120px;
+
+left:-120px;
+
+opacity:.16;
+
+animation:floatBlue 12s ease-in-out infinite;
+
+}
+
+@keyframes floatRed{
+
+50%{
+
+transform:translate(-40px,40px);
+
+}
+
+}
+
+@keyframes floatBlue{
+
+50%{
+
+transform:translate(35px,-35px);
+
+}
+
+}
+
+.container{
+
+position:relative;
+
+z-index:10;
+
+padding:24px;
+
+max-width:480px;
+
+margin:auto;
+
+}
+
+.header{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:28px;
+
+}
+
+.title{
+
+font-size:34px;
+
+font-weight:700;
+
+}
+
+.sub{
+
+color:#9c9c9c;
+
+font-size:14px;
+
+margin-top:4px;
+
+}
+
+.logo{
+
+width:64px;
+
+height:64px;
+
+border-radius:22px;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(35px);
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+border:1px solid rgba(255,255,255,.15);
+
+box-shadow:
+
+0 18px 40px rgba(0,0,0,.35),
+
+inset 0 1px 1px rgba(255,255,255,.15);
+
+}
+
+.logo img{
+
+width:46px;
+
+height:46px;
+
+border-radius:16px;
+
+}
+
+.card{
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(35px);
+
+border:1px solid rgba(255,255,255,.12);
+
+border-radius:30px;
+
+padding:22px;
+
+margin-bottom:20px;
+
+box-shadow:
+
+0 20px 45px rgba(0,0,0,.35),
+
+inset 0 1px 1px rgba(255,255,255,.12);
+
+}
+.searchBox{
+position:relative;
+margin-bottom:22px;
+}
+
+.search{
+width:100%;
+height:58px;
+border:none;
+outline:none;
+border-radius:22px;
+padding:0 20px;
+font-size:15px;
+color:#fff;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(30px);
+border:1px solid rgba(255,255,255,.12);
+box-shadow:
+0 10px 30px rgba(0,0,0,.30),
+inset 0 1px 1px rgba(255,255,255,.10);
+}
+
+.search::placeholder{
+color:#8f8f8f;
+}
+
+.label{
+display:block;
+font-size:14px;
+margin-bottom:8px;
+color:#d2d2d2;
+}
+
+.input{
+
+width:100%;
+height:58px;
+
+border:none;
+outline:none;
+
+padding:0 20px;
+
+border-radius:22px;
+
+margin-bottom:16px;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(35px);
+
+border:1px solid rgba(255,255,255,.12);
+
+color:#fff;
+
+font-size:15px;
+
+transition:.30s;
+
+}
+
+.input:focus{
+
+border-color:#FFD60A;
+
+box-shadow:
+
+0 0 0 4px rgba(255,214,10,.15);
+
+}
+
+.input::placeholder{
+
+color:#8f8f8f;
+
+}
+
+.addBtn{
+
+width:100%;
+
+height:60px;
+
+border:none;
+
+cursor:pointer;
+
+border-radius:22px;
+
+font-size:17px;
+
+font-weight:700;
+
+color:#fff;
+
+background:
+
+linear-gradient(135deg,#E30613,#ff4545);
+
+box-shadow:
+
+0 15px 35px rgba(227,6,19,.35);
+
+transition:.25s;
+
+}
+
+.addBtn:active{
+
+transform:scale(.97);
+
+}
+
+.stats{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:15px;
+
+margin-bottom:20px;
+
+}
+
+.stat{
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(35px);
+
+border-radius:24px;
+
+padding:20px;
+
+border:1px solid rgba(255,255,255,.12);
+
+}
+
+.statTitle{
+
+font-size:13px;
+
+color:#9b9b9b;
+
+margin-bottom:8px;
+
+}
+
+.statValue{
+
+font-size:32px;
+
+font-weight:700;
+
+}
+
+.list{
+
+display:flex;
+
+flex-direction:column;
+
+gap:16px;
+
+margin-top:20px;
+
+}
+
+.reqItem{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:18px;
+
+border-radius:24px;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(30px);
+
+border:1px solid rgba(255,255,255,.12);
+
+box-shadow:
+
+0 12px 30px rgba(0,0,0,.30);
+
+transition:.25s;
+
+}
+
+.reqItem:active{
+
+transform:scale(.98);
+
+}
+
+.left{
+
+display:flex;
+
+flex-direction:column;
+
+gap:5px;
+
+}
+
+.reqName{
+
+font-size:17px;
+
+font-weight:600;
+
+}
+
+.reqQty{
+
+font-size:13px;
+
+color:#aaa;
+
+}
+
+.badge{
+
+padding:7px 14px;
+
+border-radius:999px;
+
+font-size:12px;
+
+font-weight:700;
+
+background:#FFD60A;
+
+color:#111;
+
+}
+
+.delete{
+
+width:42px;
+
+height:42px;
+
+border:none;
+
+border-radius:50%;
+
+background:#ff3b30;
+
+color:#fff;
+
+font-size:18px;
+
+cursor:pointer;
+
+margin-left:12px;
+
+}
+
+.fab{
+
+position:fixed;
+
+right:22px;
+
+bottom:105px;
+
+width:68px;
+
+height:68px;
+
+border:none;
+
+border-radius:50%;
+
+background:rgba(255,255,255,.12);
+
+backdrop-filter:blur(35px);
+
+border:1px solid rgba(255,255,255,.15);
+
+font-size:32px;
+
+color:#fff;
+
+box-shadow:
+
+0 20px 40px rgba(0,0,0,.35);
+
+cursor:pointer;
+
+z-index:999;
+
+}
+
+.bottomNav{
+
+position:fixed;
+
+left:15px;
+
+right:15px;
+
+bottom:16px;
+
+padding:16px;
+
+display:flex;
+
+justify-content:space-around;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(35px);
+
+border-radius:28px;
+
+border:1px solid rgba(255,255,255,.12);
+
+box-shadow:
+
+0 20px 45px rgba(0,0,0,.35);
+
+z-index:999;
+
+}
+
+.bottomNav button{
+
+background:none;
+
+border:none;
+
+color:#bfbfbf;
+
+font-size:13px;
+
+cursor:pointer;
+
+transition:.25s;
+
+}
+
+.bottomNav button:active{
+
+transform:scale(.90);
+
+color:#fff;
+
+}
+
+<div class="container">
+
+<div class="header">
+
+<div>
+
+<div class="title">
+Requirements
+</div>
+
+<div class="sub">
+The Hundred Restaurant
+</div>
+
+</div>
+
+<div class="logo">
+<img src="logo.png">
+</div>
+
+</div>
+
+<div class="searchBox">
+
+<input
+id="search"
+class="search"
+placeholder="🔍 Search Requirement">
+
+</div>
+
+<div class="stats">
+
+<div class="stat">
+
+<div class="statTitle">
+Total Requirements
+</div>
+
+<div
+id="totalReq"
+class="statValue">
+
+0
+
+</div>
+
+</div>
+
+<div class="stat">
+
+<div class="statTitle">
+Urgent Items
+</div>
+
+<div
+id="urgentReq"
+class="statValue"
+style="color:#FFD60A;">
+
+0
+
+</div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<label class="label">
+
+Requirement Name
+
+</label>
+
+<input
+id="reqName"
+class="input"
+placeholder="Ex. Refined Oil">
+
+<label class="label">
+
+Quantity
+
+</label>
+
+<input
+id="reqQty"
+class="input"
+placeholder="Ex. 5 Tin">
+
+<button
+id="addReq"
+class="addBtn">
+
+➕ Add Requirement
+
+</button>
+
+</div>
+
+<div class="card">
+
+<h2 style="margin-bottom:18px;">
+
+Requirement List
+
+</h2>
+
+<div
+id="reqList"
+class="list">
+
+</div>
+
+</div>
+
+<div style="height:110px"></div>
+
+<button
+id="fab"
+class="fab">
+
++
+
+</button>
+
+<div class="bottomNav">
+
+<button
+onclick="location.href='dashboard.html'">
+
+🏠
+
+<br>
+
+Home
+
+</button>
+
+<button
+onclick="location.href='inventory.html'">
+
+📦
+
+<br>
+
+Inventory
+
+</button>
+
+<button
+style="color:#fff;">
+
+🛒
+
+<br>
+
+Requirements
+
+</button>
+
+<button
+onclick="location.href='reports.html'">
+
+📊
+
+<br>
+
+Reports
+
+</button>
+
+</div>
+
+<script type="module" src="requirements.js"></script>
+
+</body>
+
+</html>
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+
+<div>
+
+<div class="title">
+Requirements
+</div>
+
+<div class="sub">
+The Hundred Restaurant
+</div>
+
+</div>
+
+<div class="logo">
+<img src="logo.png" alt="Logo">
+</div>
+
+</div>
+
+<div class="searchBox">
+
+<input
+id="search"
+class="search"
+type="text"
+placeholder="🔍 Search Requirement">
+
+</div>
+
+<div class="stats">
+
+<div class="stat">
+
+<div class="statTitle">
+Total Requirements
+</div>
+
+<div
+id="totalReq"
+class="statValue">
+
+0
+
+</div>
+
+</div>
+
+<div class="stat">
+
+<div class="statTitle">
+Urgent Items
+</div>
+
+<div
+id="urgentReq"
+class="statValue"
+style="color:#FFD60A;">
+
+0
+
+</div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<label class="label">
+Requirement Name
+</label>
+
+<input
+id="reqName"
+class="input"
+placeholder="Ex. Refined Oil">
+
+<label class="label">
+Quantity
+</label>
+
+<input
+id="reqQty"
+class="input"
+placeholder="Ex. 5 Tin">
+
+<button
+id="addReq"
+class="addBtn">
+
+➕ Add Requirement
+
+</button>
+
+</div>
+
+<div class="card">
+
+<h2 style="margin-bottom:18px;">
+Requirement List
+</h2>
+
+<div
+id="reqList"
+class="list">
+
+</div>
+
+</div>
+
+<div style="height:110px"></div>
+
+<button
+id="fab"
+class="fab">
+
++
+
+</button>
+<div class="bottomNav">
+
+<button
+onclick="location.href='dashboard.html'">
+
+🏠
+<br>
+Home
+
+</button>
+
+
+<button
+onclick="location.href='inventory.html'">
+
+📦
+<br>
+Inventory
+
+</button>
+
+
+<button
+style="color:#fff;">
+
+🛒
+<br>
+Requirements
+
+</button>
+
+
+<button
+onclick="location.href='reports.html'">
+
+📊
+<br>
+Reports
+
+</button>
+
+</div>
+
+
+<script type="module" src="requirements.js"></script>
+
+
+</div>
+
+
+</body>
+
+</html>
